@@ -5,8 +5,7 @@ import static javax.persistence.EnumType.STRING;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
-
-import com.sun.istack.NotNull;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,18 +33,30 @@ public class User
 
     /**
      * Parameterized {@link User} constructor.
-     * @param userId {@link String} The user's associate ID
-     * @param firstName {@link String} The user's first name
-     * @param lastName {@link String} The user's last name
-     * @param email {@link String} The user's email address
+     * @param userId the user's associate ID
+     * @param firstName the user's first name
+     * @param lastName the user's last name
+     * @param email the user's email address
+     * @param userRole {@link UserRole} The user's role
      */
-    public User(String userId, String firstName, String lastName, String email)
+    public User(String associateId, String firstName, String lastName, String email, UserRole role)
     {
-        this.userId = userId;
+        userId = associateId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        userRole = UserRole.CUSTOMER;
+        userRole = role;
     }
 
+    /**
+     * Parameterized {@link User} constructor. Sets default User Role to TRAINEE.
+     * @param userId the user's associate ID
+     * @param firstName the user's first name
+     * @param lastName the user's last name
+     * @param email the user's email address
+     */
+    public User(String associateId, String firstName, String lastName, String email)
+    {
+        this(associateId, firstName, lastName, email, UserRole.CUSTOMER);
+    }
 }
