@@ -32,3 +32,26 @@ build/
 ### VS Code ###
 .vscode/
 /bin/
+
+
+
+### REACT RELATED ###
+# dependencies
+src/main/app/node_modules
+src/main/app/.pnp
+src/main/app.pnp.js
+
+# testing
+src/main/app/coverage
+
+# production
+src/main/app/build
+
+# misc
+src/main/app.DS_Store
+src/main/app.env.local
+src/main/app.env.development.local
+src/main/app.env.test.local
+src/main/app.env.production.local
+
+src/main/appnpm-debug.log* 
